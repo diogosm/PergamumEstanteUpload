@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/biblioteca_app.iml" filepath="$PROJECT_DIR$/.idea/modules/biblioteca_app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/biblioteca_app_integrationTest.iml" filepath="$PROJECT_DIR$/.idea/modules/biblioteca_app_integrationTest.iml" group="biblioteca_app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/biblioteca_app_main.iml" filepath="$PROJECT_DIR$/.idea/modules/biblioteca_app_main.iml" group="biblioteca_app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/biblioteca_app_test.iml" filepath="$PROJECT_DIR$/.idea/modules/biblioteca_app_test.iml" group="biblioteca_app" />
+    </modules>
+  </component>
+</project>
