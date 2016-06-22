@@ -10,6 +10,6 @@ class UrlMappings {
         "/"(controller: 'application', action:'index')
         "500"(view: '/error')
         "404"(view: '/notFound')
-        "/estante/$id"(controller:"estante", action: "mostra", method: "GET")
+        "/estante/$id"(controller:"estante", action: "mostra", method: "POST")
     }
 }
