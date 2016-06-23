@@ -1,8 +1,6 @@
 package biblioteca_app
 
-
-import grails.rest.*
-import grails.converters.*
+import grails.rest.RestfulController
 import org.apache.tomcat.util.http.fileupload.IOUtils
 import org.springframework.web.multipart.MultipartFile
 import org.springframework.web.multipart.MultipartHttpServletRequest
@@ -17,6 +15,7 @@ class EstanteController extends RestfulController {
     // /
     def mostra(Integer max){
         def m = new Mensagem()
+        println 'ola'
         String fileLabel = params.fileLabel
         MultipartFile uploadedFile = null
         String fileName=""
@@ -32,7 +31,7 @@ class EstanteController extends RestfulController {
             //get uploaded file's inputStream
             InputStream inputStream = uploadedFile.inputStream
             //get the file storage location
-            def fileTobeStoredInDirPath = '/home/dev/Pictures/' ///grailsApplication.config.myapp.file.storage.location
+            def fileTobeStoredInDirPath = '/home/proeg/Pictures/' ///grailsApplication.config.myapp.file.storage.location
             //create a new file with fileLabel
             File file = new File(fileTobeStoredInDirPath, fileLabel)
             //This support both overriding and creating new file
