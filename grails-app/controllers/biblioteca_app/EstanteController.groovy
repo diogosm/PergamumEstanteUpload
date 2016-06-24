@@ -1,38 +1,33 @@
 package biblioteca_app
 
 import grails.rest.RestfulController
+import groovy.io.FileType
 import org.apache.tomcat.util.http.fileupload.IOUtils
 import org.springframework.web.multipart.MultipartFile
 import org.springframework.web.multipart.MultipartHttpServletRequest
 
 class EstanteController extends RestfulController {
     static responseFormats = ['json', 'xml']
+    static final String DIRETORIO_PERGAMUM = '/home/proeg/Pictures/'
     EstanteController() {
         super(Estante)
     }
     //
     // curl -F "image[]=@/home/dev/Downloads/th_01.gif" -F "image[]=@/home/dev/Downloads/th_02.gif"  http://localhost:8080/estante/1
     // /
-    def mostra(Integer max) {
+    def upload() {
         def m = new Mensagem()
         String fileLabel = params.fileLabel
         MultipartFile uploadedFile = null
         String fileName = ""
         try {
             if (request instanceof MultipartHttpServletRequest) {
-                //Get the file's name from request
-                //fileName = request.getFileNames()[0]
-                //Get a reference to the uploaded file.
-                //get the file storage location
-                def fileTobeStoredInDirPath = '/home/ctic/Pictures/'
-                fileName = request.getFileNames()
-                //fileName = request.getMultiFileMap()
+                def fileTobeStoredInDirPath = '/home/proeg/Pictures/'
 
                 request.fileNames.each {
                     def nomeArquivo = it
                     uploadedFile = request.getFile( nomeArquivo )
                     fileLabel = uploadedFile.getOriginalFilename()
-
                     //get uploaded file's inputStream
                     InputStream inputStream = uploadedFile.inputStream
                     //create a new file with fileLabel
@@ -52,7 +47,6 @@ class EstanteController extends RestfulController {
                     m.descricao = 'Arquivo importado com sucessso'
                 }
 
-
             }
 
         }
@@ -62,6 +56,19 @@ class EstanteController extends RestfulController {
 
         }
         respond m
+    }
+
+    def list(){
+        def list = new ArrayList<Estante>()
+        def dir = new File(DIRETORIO_PERGAMUM)
+        dir.eachFileRecurse (FileType.FILES) { file ->
+
+            def estante = new Estante()
+            estante.nomeFigura = file
+            list.add(estante)
+
+        }
+        respond list
     }
     
 }
