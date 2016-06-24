@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest
 
 class EstanteController extends RestfulController {
     static responseFormats = ['json', 'xml']
-    static final String DIRETORIO_PERGAMUM = '/home/proeg/Pictures/'
+    static final String DIRETORIO_PERGAMUM = '/usr/src/pergamum/pergamumweb/estante/'
     EstanteController() {
         super(Estante)
     }
@@ -22,7 +22,7 @@ class EstanteController extends RestfulController {
         String fileName = ""
         try {
             if (request instanceof MultipartHttpServletRequest) {
-                def fileTobeStoredInDirPath = '/home/proeg/Pictures/'
+                def fileTobeStoredInDirPath = DIRETORIO_PERGAMUM
 
                 request.fileNames.each {
                     def nomeArquivo = it
