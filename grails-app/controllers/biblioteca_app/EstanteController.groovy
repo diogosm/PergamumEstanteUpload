@@ -70,5 +70,19 @@ class EstanteController extends RestfulController {
         }
         respond list
     }
-    
+
+    def deletar(String arquivo){
+        def m = new Mensagem()
+        boolean fileSuccessfullyDeleted =  new File(DIRETORIO_PERGAMUM+arquivo).delete()
+        if(fileSuccessfullyDeleted ){
+            m.codigo = '200'
+            m.descricao = 'O arquivo'+ arquivo+' foi deletado com sucesso.'
+        }
+        else{
+            m.codigo = '500'
+            m.descricao = 'Aconteceu um problema ao deletar o '+ arquivo+'.'
+        }
+        respond m
+    }
+
 }

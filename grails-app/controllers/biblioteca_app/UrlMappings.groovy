@@ -12,5 +12,6 @@ class UrlMappings {
         "404"(view: '/notFound')
         "/estante/upload"(controller:"estante", action: "upload", method: "POST")
         "/estante/list"(controller:"estante", action: "list", method: "POST")
+        "/estante/delete/$arquivo"(controller:"estante", action: "deletar", method: "POST")
     }
 }
